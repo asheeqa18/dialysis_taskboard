@@ -198,25 +198,25 @@ npm run test:coverage    # tests + coverage report
 
 
 
-## AI Usage
+AI Usage
 
-### What I used AI for
+ What I used AI for
 Boilerplate and config scaffolding, TypeScript interface drafts,
 CSS styling suggestions, and debugging error messages.
 
-### What I reviewed and changed manually
+ What I reviewed and changed manually
 Every file was read and verified before committing. Fixed all
 Windows environment issues, runtime errors, and TypeScript config
 problems that AI did not anticipate. All architectural decisions
 were made independently after reviewing trade-offs.
 
-### One example where I disagreed with the AI output
+ One example where I disagreed with the AI output
 AI suggested `Promise.all` for loading tasks across all patients.
 I changed it to `Promise.allSettled` so that one failed request
 does not collapse the entire board — in a clinical setting,
 partial data is better than no data.
 
-## Failure Modes
+Failure Modes
 
 See [`docs/INTEGRATION_AND_FAILURE_MODES.md`](docs/INTEGRATION_AND_FAILURE_MODES.md)
 for the complete failure mode table, extensibility guide, and
