@@ -191,7 +191,7 @@ models with fallbacks for every optional or unknown field.
 | `normalizers.test.ts` | DTO coercion, missing fields, status derivation, list filtering |
 | `taskStore.test.ts` | Optimistic update, rollback, filter selectors, toast lifecycle |
 | `TaskCard.test.tsx` | Render variants, spinner, status change, rollback + error toast |
-```bash
+
 npm test                 # run all tests
 npm run test:coverage    # tests + coverage report
 
