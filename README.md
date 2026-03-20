@@ -142,7 +142,7 @@ models with fallbacks for every optional or unknown field.
 | Missing `title` | Falls back to `"Untitled Task"` |
 | Null/malformed items in list | Filtered out silently |
 
----
+
 
 ## Assumptions and Trade-offs
 
@@ -165,7 +165,7 @@ models with fallbacks for every optional or unknown field.
 - **Table layout for the board** — chosen over a pure CSS grid for its
   natural sticky-column behaviour (patient names stay visible on scroll).
 
----
+
 
 ## Known Limitations
 
@@ -180,7 +180,7 @@ models with fallbacks for every optional or unknown field.
 | MSW failures are random | In production, use real error monitoring (Sentry) |
 | No role-based access | Filter patients/tasks by logged-in user's role |
 
----
+
 
 ## Tests
 
@@ -194,37 +194,27 @@ models with fallbacks for every optional or unknown field.
 ```bash
 npm test                 # run all tests
 npm run test:coverage    # tests + coverage report
-```
 
----
+
+
 
 ## AI Usage
 
-This project was built with the assistance of Claude (Anthropic).
+### What I used AI for
+Boilerplate and config scaffolding, TypeScript interface drafts,
+CSS styling suggestions, and debugging error messages.
 
-### What AI was used for
-- Initial project scaffolding and file structure
-- Boilerplate for MSW handlers and seed data
-- TypeScript type definitions and interfaces
-- CSS design system and component styling
-- Test structure and assertions
-
-### What was reviewed and changed manually
-- Verified all import paths matched the actual file structure
-- Confirmed the optimistic update / rollback logic was correct
-- Reviewed normalizer fallback values for clinical appropriateness
-- Fixed TypeScript config errors (`vite/client` types, `TimeWindow` import)
-- Adjusted MSW service worker setup for Windows environment
+### What I reviewed and changed manually
+Every file was read and verified before committing. Fixed all
+Windows environment issues, runtime errors, and TypeScript config
+problems that AI did not anticipate. All architectural decisions
+were made independently after reviewing trade-offs.
 
 ### One example where I disagreed with the AI output
-The AI initially used `Promise.all` for `fetchAllTasks`, which would cause
-the entire board to fail if any single patient's task fetch failed.
-I changed this to `Promise.allSettled` so that one failing patient row
-does not prevent the rest of the board from loading — a much better
-user experience in a clinical setting where partial data is better than
-no data.
-
----
+AI suggested `Promise.all` for loading tasks across all patients.
+I changed it to `Promise.allSettled` so that one failed request
+does not collapse the entire board — in a clinical setting,
+partial data is better than no data.
 
 ## Failure Modes
 
