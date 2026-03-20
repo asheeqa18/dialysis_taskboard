@@ -192,7 +192,8 @@ models with fallbacks for every optional or unknown field.
 | `taskStore.test.ts` | Optimistic update, rollback, filter selectors, toast lifecycle |
 | `TaskCard.test.tsx` | Render variants, spinner, status change, rollback + error toast |
 
-npm test                 # run all tests
+npm test                  # run all tests
+
 npm run test:coverage    # tests + coverage report
 
 
@@ -200,17 +201,18 @@ npm run test:coverage    # tests + coverage report
 
 AI Usage
 
- What I used AI for
+ What I used AI for:
 Boilerplate and config scaffolding, TypeScript interface drafts,
 CSS styling suggestions, and debugging error messages.
 
- What I reviewed and changed manually
+ What I reviewed and changed manually : 
+
 Every file was read and verified before committing. Fixed all
 Windows environment issues, runtime errors, and TypeScript config
 problems that AI did not anticipate. All architectural decisions
 were made independently after reviewing trade-offs.
 
- One example where I disagreed with the AI output
+ One example where I disagreed with the AI output :
 AI suggested `Promise.all` for loading tasks across all patients.
 I changed it to `Promise.allSettled` so that one failed request
 does not collapse the entire board — in a clinical setting,
